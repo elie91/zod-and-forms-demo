@@ -29,6 +29,8 @@ export default function React19FormPage() {
     );
   }
 
+  const errors = state.errors as Record<string, string>;
+
   return (
     <FormShell
       title="React 19 Form + Zod"
@@ -40,7 +42,7 @@ export default function React19FormPage() {
         <div className="space-y-2">
           <Label
             htmlFor="username"
-            className={state.errors?.username ? "text-destructive" : ""}
+            className={errors?.username ? "text-destructive" : ""}
           >
             Username <span className="text-destructive">*</span>
           </Label>
@@ -48,12 +50,12 @@ export default function React19FormPage() {
             id="username"
             name="username"
             defaultValue={defaultValues.username}
-            className={state.errors?.username ? "border-destructive" : ""}
+            className={errors?.username ? "border-destructive" : ""}
             placeholder="johndoe"
             required
           />
-          {state.errors?.username && (
-            <p className="text-sm text-destructive">{state.errors.username}</p>
+          {errors?.username && (
+            <p className="text-sm text-destructive">{errors.username}</p>
           )}
         </div>
 
@@ -61,7 +63,7 @@ export default function React19FormPage() {
         <div className="space-y-2">
           <Label
             htmlFor="email"
-            className={state.errors?.email ? "text-destructive" : ""}
+            className={errors?.email ? "text-destructive" : ""}
           >
             Email <span className="text-destructive">*</span>
           </Label>
@@ -70,12 +72,12 @@ export default function React19FormPage() {
             name="email"
             type="email"
             defaultValue={defaultValues.email}
-            className={state.errors?.email ? "border-destructive" : ""}
+            className={errors?.email ? "border-destructive" : ""}
             placeholder="john.doe@example.com"
             required
           />
-          {state.errors?.email && (
-            <p className="text-sm text-destructive">{state.errors.email}</p>
+          {errors?.email && (
+            <p className="text-sm text-destructive">{errors.email}</p>
           )}
         </div>
 
@@ -83,7 +85,7 @@ export default function React19FormPage() {
         <div className="space-y-2">
           <Label
             htmlFor="password"
-            className={state.errors?.password ? "text-destructive" : ""}
+            className={errors?.password ? "text-destructive" : ""}
           >
             Password <span className="text-destructive">*</span>
           </Label>
@@ -92,11 +94,11 @@ export default function React19FormPage() {
             name="password"
             type="password"
             defaultValue={defaultValues.password}
-            className={state.errors?.password ? "border-destructive" : ""}
+            className={errors?.password ? "border-destructive" : ""}
             required
           />
-          {state.errors?.password && (
-            <p className="text-sm text-destructive">{state.errors.password}</p>
+          {errors?.password && (
+            <p className="text-sm text-destructive">{errors.password}</p>
           )}
         </div>
 
@@ -104,7 +106,7 @@ export default function React19FormPage() {
         <div className="space-y-2">
           <Label
             htmlFor="confirmPassword"
-            className={state.errors?.confirmPassword ? "text-destructive" : ""}
+            className={errors?.confirmPassword ? "text-destructive" : ""}
           >
             Confirm Password <span className="text-destructive">*</span>
           </Label>
@@ -113,15 +115,11 @@ export default function React19FormPage() {
             name="confirmPassword"
             type="password"
             defaultValue={defaultValues.confirmPassword}
-            className={
-              state.errors?.confirmPassword ? "border-destructive" : ""
-            }
+            className={errors?.confirmPassword ? "border-destructive" : ""}
             required
           />
-          {state.errors?.confirmPassword && (
-            <p className="text-sm text-destructive">
-              {state.errors.confirmPassword}
-            </p>
+          {errors?.confirmPassword && (
+            <p className="text-sm text-destructive">{errors.confirmPassword}</p>
           )}
         </div>
 
@@ -129,7 +127,7 @@ export default function React19FormPage() {
         <div className="space-y-2">
           <Label
             htmlFor="dateOfBirth"
-            className={state.errors?.dateOfBirth ? "text-destructive" : ""}
+            className={errors?.dateOfBirth ? "text-destructive" : ""}
           >
             Date of Birth <span className="text-destructive">*</span>
           </Label>
@@ -142,13 +140,11 @@ export default function React19FormPage() {
                 ? defaultValues.dateOfBirth
                 : ""
             }
-            className={state.errors?.dateOfBirth ? "border-destructive" : ""}
+            className={errors?.dateOfBirth ? "border-destructive" : ""}
             required
           />
-          {state.errors?.dateOfBirth && (
-            <p className="text-sm text-destructive">
-              {state.errors.dateOfBirth}
-            </p>
+          {errors?.dateOfBirth && (
+            <p className="text-sm text-destructive">{errors.dateOfBirth}</p>
           )}
         </div>
 

@@ -33,7 +33,6 @@ export default function BasicFormPage() {
   };
 
   // Basic validation function without Zod
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const validateField = (name: string, value: any): string => {
     switch (name) {
       case "username":
