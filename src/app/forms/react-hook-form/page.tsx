@@ -1,7 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -11,8 +10,6 @@ import { Label } from "@/components/ui/label";
 import { defaultValues, UserFormData, userSchema } from "@/lib/schema";
 
 export default function ReactHookFormPage() {
-  const [success, setSuccess] = useState(false);
-
   const methods = useForm<UserFormData>({
     resolver: zodResolver(userSchema),
     defaultValues,
@@ -21,7 +18,7 @@ export default function ReactHookFormPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
     reset,
     watch,
   } = methods;
@@ -42,13 +39,12 @@ export default function ReactHookFormPage() {
       toast(`User ${data.username} created successfully.`);
 
       reset(defaultValues);
-      setSuccess(true);
     } catch (error: any) {
       toast(`Error: ${error.message}`);
     }
   };
 
-  if (success) {
+  if (isSubmitSuccessful) {
     return (
       <FormShell
         title="React Hook Form + Zod"
