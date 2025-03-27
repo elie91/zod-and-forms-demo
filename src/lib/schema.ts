@@ -50,7 +50,7 @@ export const defaultValues: Omit<UserFormData, "confirmPassword"> & {
   confirmPassword: string;
 } = {
   username: "el",
-  email: "eliebismuth",
+  email: "eliebismuth@gmail.com",
   password: "elie1996",
   confirmPassword: "elie1997",
   dateOfBirth: new Date(),
