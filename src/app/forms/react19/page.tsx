@@ -16,6 +16,8 @@ export default function React19FormPage() {
     errors: {},
   });
 
+  console.log(state, isPending);
+
   if (state.success) {
     return (
       <FormShell

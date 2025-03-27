@@ -1,7 +1,7 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 import importPlugin from "eslint-plugin-import";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -18,6 +18,7 @@ const eslintConfig = [
     },
     rules: {
       "react/no-unescaped-entities": "off",
+      " @typescript-eslint/no-explicit-any": "off",
       "import/order": [
         "error",
         {
