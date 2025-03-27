@@ -1,2 +1,3 @@
+export * from './basic-submit-button';
 export * from './form-shell';
-export * from './submit-button';
+export * from './rhf-submit-button';

@@ -1,13 +1,12 @@
-import { FC } from "react";
+import { useFormContext } from "react-hook-form";
 
 import { Button } from "../ui/button";
 
-interface Props {
-  isSubmitting: boolean;
-}
-
-export const SubmitButton: FC<Props> = ({ isSubmitting }) => {
+export const RHFSubmitButton = () => {
   console.log("SubmitButton");
+  const formContext = useFormContext();
+
+  const isSubmitting = formContext.formState.isSubmitting;
   return (
     <Button type="submit" className="w-full" disabled={isSubmitting}>
       {isSubmitting ? (

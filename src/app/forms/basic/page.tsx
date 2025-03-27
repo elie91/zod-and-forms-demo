@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 
-import { FormShell, SubmitButton } from "@/components/forms";
+import { FormShell, BasicSubmitButton } from "@/components/forms";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { defaultValues, UserFormData } from "@/lib/schema";
@@ -287,7 +287,7 @@ export default function BasicFormPage() {
           )}
         </div>
 
-        <SubmitButton isSubmitting={isSubmitting} />
+        <BasicSubmitButton isSubmitting={isSubmitting} />
       </form>
     </FormShell>
   );
