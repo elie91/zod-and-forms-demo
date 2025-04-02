@@ -7,7 +7,7 @@ import { FormShell } from "@/components/forms";
 import { React19SubmitButton } from "@/components/forms/react19-submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { defaultValues } from "@/lib/schema";
+//import { defaultValues } from "@/lib/schema";
 
 export default function React19FormPage() {
   const [state, formAction, isPending] = useActionState(createUserAction, {
@@ -18,17 +18,6 @@ export default function React19FormPage() {
 
   console.log(state, isPending);
 
-  if (state.success) {
-    return (
-      <FormShell
-        title="React 19 Form + Zod"
-        description="Form using React 19 hooks with Zod validation"
-        formSuccess={state.data}
-        accentColor="bg-amber-500"
-      />
-    );
-  }
-
   const errors = state.errors as Record<string, string>;
 
   return (
@@ -37,6 +26,11 @@ export default function React19FormPage() {
       description="Form using React 19 hooks with Zod validation"
       accentColor="bg-amber-500"
     >
+      {state.success && (
+        <div className="mb-4">
+          <p className="text-sm text-green-500">Form submitted successfully!</p>
+        </div>
+      )}
       <form action={formAction} className="space-y-6">
         {/* Username Field */}
         <div className="space-y-2">
@@ -49,7 +43,7 @@ export default function React19FormPage() {
           <Input
             id="username"
             name="username"
-            defaultValue={defaultValues.username}
+            //defaultValue={defaultValues.username}
             className={errors?.username ? "border-destructive" : ""}
             placeholder="johndoe"
             required
@@ -71,7 +65,7 @@ export default function React19FormPage() {
             id="email"
             name="email"
             type="email"
-            defaultValue={defaultValues.email}
+            //defaultValue={defaultValues.email}
             className={errors?.email ? "border-destructive" : ""}
             placeholder="john.doe@example.com"
             required
@@ -93,7 +87,7 @@ export default function React19FormPage() {
             id="password"
             name="password"
             type="password"
-            defaultValue={defaultValues.password}
+            //defaultValue={defaultValues.password}
             className={errors?.password ? "border-destructive" : ""}
             required
           />
@@ -114,7 +108,7 @@ export default function React19FormPage() {
             id="confirmPassword"
             name="confirmPassword"
             type="password"
-            defaultValue={defaultValues.confirmPassword}
+            //defaultValue={defaultValues.confirmPassword}
             className={errors?.confirmPassword ? "border-destructive" : ""}
             required
           />
@@ -135,11 +129,11 @@ export default function React19FormPage() {
             id="dateOfBirth"
             name="dateOfBirth"
             type="date"
-            defaultValue={
+            /*             defaultValue={
               typeof defaultValues.dateOfBirth === "string"
                 ? defaultValues.dateOfBirth
-                : ""
-            }
+                : defaultValues.dateOfBirth.toISOString().split("T")[0]
+            } */
             className={errors?.dateOfBirth ? "border-destructive" : ""}
             required
           />

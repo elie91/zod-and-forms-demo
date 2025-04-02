@@ -122,23 +122,17 @@ export default function ZodFormPage() {
     }
   };
 
-  if (success) {
-    return (
-      <FormShell
-        title="Zod Form"
-        description="Form using Zod for validation but still with manual state management"
-        formSuccess={formData}
-        accentColor="bg-green-500"
-      />
-    );
-  }
-
   return (
     <FormShell
       title="Zod Form"
       description="Form using Zod for validation but still with manual state management"
       accentColor="bg-green-500"
     >
+      {success && (
+        <div className="mb-4">
+          <p className="text-sm text-green-500">Form submitted successfully!</p>
+        </div>
+      )}
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Username Field */}
         <div className="space-y-2">

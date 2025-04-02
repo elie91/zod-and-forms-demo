@@ -20,7 +20,7 @@ export default function ReactHookFormPage() {
     handleSubmit,
     formState: { errors, isSubmitSuccessful },
     reset,
-    watch,
+    //watch,
   } = methods;
 
   const createUser = async (data: UserFormData): Promise<void> => {
@@ -44,23 +44,17 @@ export default function ReactHookFormPage() {
     }
   };
 
-  if (isSubmitSuccessful) {
-    return (
-      <FormShell
-        title="React Hook Form + Zod"
-        description="Form using React Hook Form with Zod validation"
-        formSuccess={watch()}
-        accentColor="bg-purple-500"
-      />
-    );
-  }
-
   return (
     <FormShell
       title="React Hook Form + Zod"
       description="Form using React Hook Form with Zod validation"
       accentColor="bg-purple-500"
     >
+      {isSubmitSuccessful && (
+        <div className="mb-4">
+          <p className="text-sm text-green-500">Form submitted successfully!</p>
+        </div>
+      )}
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Username Field */}

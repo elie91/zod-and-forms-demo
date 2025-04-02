@@ -149,23 +149,17 @@ export default function BasicFormPage() {
     }
   };
 
-  if (success) {
-    return (
-      <FormShell
-        title="Basic Form"
-        description="Form created with just useState and manual validation (without Zod)"
-        formSuccess={formData}
-        accentColor="bg-blue-500"
-      />
-    );
-  }
-
   return (
     <FormShell
       title="Basic Form"
       description="Form created with just useState and manual validation (without Zod)"
       accentColor="bg-blue-500"
     >
+      {success && (
+        <div className="mb-4">
+          <p className="text-sm text-green-500">Form submitted successfully!</p>
+        </div>
+      )}
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Username Field */}
         <div className="space-y-2">
