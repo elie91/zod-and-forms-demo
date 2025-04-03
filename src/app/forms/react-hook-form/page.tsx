@@ -5,6 +5,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 import { FormShell, RHFSubmitButton } from "@/components/forms";
+import { Test } from "@/components/test";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { defaultValues, UserFormData, userSchema } from "@/lib/schema";
@@ -161,6 +162,7 @@ export default function ReactHookFormPage() {
             )}
           </div>
 
+          {/* <Test /> */}
           <RHFSubmitButton />
         </form>
       </FormProvider>

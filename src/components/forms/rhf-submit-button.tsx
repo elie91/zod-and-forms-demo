@@ -4,9 +4,10 @@ import { Button } from "../ui/button";
 
 export const RHFSubmitButton = () => {
   console.log("SubmitButton");
-  const formContext = useFormContext();
+  const {
+    formState: { isSubmitting },
+  } = useFormContext();
 
-  const isSubmitting = formContext.formState.isSubmitting;
   return (
     <Button type="submit" className="w-full" disabled={isSubmitting}>
       {isSubmitting ? (

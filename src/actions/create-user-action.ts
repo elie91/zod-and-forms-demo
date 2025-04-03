@@ -16,11 +16,6 @@ export async function createUserAction(prevState: any, formData: FormData) {
   };
 
   try {
-    userSchema.parse(data);
-  } catch (error: any) {
-    console.log(error);
-  }
-  try {
     const validatedData = userSchema.parse(formValues);
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
