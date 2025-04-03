@@ -162,7 +162,7 @@ export default function ReactHookFormPage() {
             )}
           </div>
 
-          {/* <Test /> */}
+          <Test />
           <RHFSubmitButton />
         </form>
       </FormProvider>

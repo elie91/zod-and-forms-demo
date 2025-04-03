@@ -49,9 +49,9 @@ export type UserFormData = z.infer<typeof userSchema>;
 export const defaultValues: Omit<UserFormData, "confirmPassword"> & {
   confirmPassword: string;
 } = {
-  username: "el",
+  username: "elie",
   email: "eliebismuth@gmail.com",
-  password: "elie1996",
-  confirmPassword: "elie1997",
-  dateOfBirth: new Date(),
+  password: "Elie1996*",
+  confirmPassword: "Elie1996*",
+  dateOfBirth: new Date("1996-01-01"),
 };

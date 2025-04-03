@@ -1,10 +1,10 @@
-import { useFormContext } from "react-hook-form";
+import { useFormContext, useWatch } from "react-hook-form";
 
 export const Test = () => {
   console.log("test");
 
-  const { watch } = useFormContext();
-  const username = watch("username");
+  const { control } = useFormContext();
+  const username = useWatch({ control, name: "username" });
 
   if (username === "elie") {
     return <p>Test Elie</p>;

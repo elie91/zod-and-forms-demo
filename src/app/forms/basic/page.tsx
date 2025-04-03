@@ -11,7 +11,6 @@ import { defaultValues, UserFormData } from "@/lib/schema";
 export default function BasicFormPage() {
   const [formData, setFormData] = useState<UserFormData>(defaultValues);
 
-  // handling manually the errors, loading and success states
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -23,7 +22,6 @@ export default function BasicFormPage() {
       [name]: value,
     });
 
-    // Clear the error for this field when user types
     if (errors[name]) {
       setErrors({
         ...errors,
@@ -32,7 +30,6 @@ export default function BasicFormPage() {
     }
   };
 
-  // Basic validation function without Zod
   const validateField = (name: string, value: any): string => {
     switch (name) {
       case "username":
@@ -46,7 +43,6 @@ export default function BasicFormPage() {
 
       case "email":
         if (!value) return "Email is required";
-        // Basic email validation
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
           return "Invalid email address";
         return "";
@@ -85,7 +81,6 @@ export default function BasicFormPage() {
     }
   };
 
-  // Validate on blur
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     const error = validateField(name, value);
@@ -98,12 +93,10 @@ export default function BasicFormPage() {
     }
   };
 
-  // Validate all form fields
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     let isValid = true;
 
-    // Validate each field
     Object.entries(formData).forEach(([key, value]) => {
       const error = validateField(key, value);
       if (error) {
